@@ -22,37 +22,6 @@
             background-color: var(--bg-body);
         }
 
-        @media (max-width: 1024px) {
-            .dashboard-layout {
-                grid-template-columns: 1fr;
-            }
-
-            .sidebar {
-                display: none;
-            }
-
-            .sidebar.active {
-                display: flex;
-                position: fixed;
-                top: 0;
-                left: 0;
-                bottom: 0;
-                z-index: 2000;
-                width: 260px;
-            }
-
-            .sidebar-overlay {
-                display: none;
-                position: fixed;
-                inset: 0;
-                background: rgba(0, 0, 0, 0.5);
-                z-index: 1000;
-            }
-
-            .sidebar-overlay.active {
-                display: block;
-            }
-        }
 
         .sidebar {
             background: var(--bg-surface);
@@ -76,8 +45,9 @@
 
         .nav-item:hover,
         .nav-item.active {
-            background: var(--color-primary);
+            background: rgba(255, 255, 255, 0.08);
             color: white;
+            box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.05);
         }
 
         [data-theme="dark"] .nav-item:hover,
@@ -154,14 +124,82 @@
             transform: translateX(26px);
         }
 
-        #sidebar-toggle {
-            display: none;
-        }
 
         @media (max-width: 1024px) {
+            .dashboard-layout {
+                grid-template-columns: 1fr;
+                padding-top: 80px;
+            }
+
+            .sidebar {
+                display: none;
+            }
+
+            .sidebar.active {
+                display: flex;
+                position: fixed;
+                top: 0;
+                left: 0;
+                bottom: 0;
+                z-index: 2100;
+                width: 260px;
+            }
+
+            .sidebar-overlay {
+                display: none;
+                position: fixed;
+                inset: 0;
+                background: rgba(0, 0, 0, 0.5);
+                backdrop-filter: blur(4px);
+                z-index: 2050;
+            }
+
+            .sidebar-overlay.active {
+                display: block;
+            }
+
+            .topbar {
+                position: fixed !important;
+                top: 0 !important;
+                bottom: auto !important;
+                left: 0 !important;
+                right: 0 !important;
+                height: 80px !important;
+                border-top: none !important;
+                border-bottom: 1px solid var(--border-color) !important;
+                padding: 0 1rem !important;
+                background: var(--bg-surface) !important;
+                box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15) !important;
+                z-index: 3000 !important;
+            }
+
+            .dashboard-content {
+                padding-bottom: 2rem !important;
+                max-height: none !important;
+                overflow-y: visible !important;
+            }
+
             #sidebar-toggle {
                 display: flex;
+                background: var(--bg-surface) !important;
+                color: var(--heading-color) !important;
+                border: 2px solid var(--border-color) !important;
+                margin-top: 0 !important;
             }
+
+            .mobile-logo {
+                display: block !important;
+                font-family: var(--font-heading);
+                font-size: 1.25rem;
+                font-weight: 700;
+                color: var(--heading-color);
+                text-decoration: none;
+                margin-right: 0.5rem;
+            }
+        }
+
+        .mobile-logo {
+            display: none;
         }
     </style>
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
@@ -172,142 +210,192 @@
     <div class="dashboard-layout">
 
         <!-- Sidebar -->
-        <aside class="sidebar" id="sidebar">
-            <div class="logo" style="margin-bottom: 3rem;">
+        <aside class="sidebar" id="sidebar" style="background: #0F172A; color: white; border-right: none;">
+            <div class="logo" style="margin-bottom: 3.5rem;">
                 <a href="index.html"
-                    style="font-family: var(--font-heading); font-size: 1.5rem; font-weight: 700; color: var(--heading-color);">
+                    style="font-family: var(--font-heading); font-size: 1.5rem; font-weight: 700; color: white;">
                     Tax<span style="color: var(--color-accent);">Pro</span>
                 </a>
             </div>
 
-            <nav style="flex: 1;">
+            <nav style="display: flex; flex-direction: column;">
                 <a href="dashboard.html" class="nav-item">
-                    <span>📊</span> Dashboard
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                        style="width: 20px; height: 20px; stroke-width: 2;">
+                        <rect x="3" y="3" width="7" height="7" rx="1"></rect>
+                        <rect x="14" y="3" width="7" height="7" rx="1"></rect>
+                        <rect x="14" y="14" width="7" height="7" rx="1"></rect>
+                        <rect x="3" y="14" width="7" height="7" rx="1"></rect>
+                    </svg>
+                    Dashboard
                 </a>
                 <a href="#" class="nav-item">
-                    <span>📁</span> My Filings
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                        style="width: 20px; height: 20px; stroke-width: 2;">
+                        <path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z">
+                        </path>
+                    </svg>
+                    My Filings
                 </a>
                 <a href="#" class="nav-item">
-                    <span>📤</span> Upload Docs
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                        style="width: 20px; height: 20px; stroke-width: 2;">
+                        <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                        <polyline points="17 8 12 3 7 8"></polyline>
+                        <line x1="12" y1="3" x2="12" y2="15"></line>
+                    </svg>
+                    Upload Docs
                 </a>
                 <a href="#" class="nav-item">
-                    <span>💬</span> Messages
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                        style="width: 20px; height: 20px; stroke-width: 2;">
+                        <path
+                            d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z">
+                        </path>
+                    </svg>
+                    Messages
                 </a>
                 <a href="#" class="nav-item active">
-                    <span>⚙️</span> Settings
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                        style="width: 20px; height: 20px; stroke-width: 2;">
+                        <circle cx="12" cy="12" r="3"></circle>
+                        <path
+                            d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z">
+                        </path>
+                    </svg>
+                    Settings
                 </a>
             </nav>
 
-            <div class="user-profile" style="border-top: 1px solid var(--border-color); padding-top: 1.5rem;">
-                <div class="flex" style="align-items: center; gap: 0.75rem; margin-bottom: 1rem;">
+            <div class="user-profile"
+                style="border-top: 1px solid rgba(255,255,255,0.05); padding-top: 2rem; margin-top: auto;">
+                <div class="flex" style="align-items: center; gap: 0.75rem; margin-bottom: 1.5rem;">
                     <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?q=80&w=150"
-                        style="border-radius: 50%; width: 40px; height: 40px; object-fit: cover;" alt="John Doe">
+                        style="border-radius: 50%; width: 45px; height: 45px; object-fit: cover; border: 2px solid rgba(255,255,255,0.1);"
+                        alt="John Doe">
                     <div>
-                        <div style="font-weight: 600; font-size: 0.9rem;">John Doe</div>
-                        <div style="font-size: 0.8rem; color: var(--text-muted);">Premium Plan</div>
+                        <div style="font-weight: 600; font-size: 0.95rem; color: white;">John Doe</div>
+                        <div style="font-size: 0.8rem; color: rgba(255,255,255,0.5);">Premium Plan</div>
                     </div>
                 </div>
                 <a href="index.html" class="btn btn-outline"
-                    style="width: 100%; justify-content: center; font-size: 0.9rem; padding: 0.5rem;">Log Out</a>
+                    style="width: 100%; justify-content: center; font-size: 0.9rem; padding: 0.6rem; border-color: rgba(255,255,255,0.5); color: white;">Log
+                    Out</a>
             </div>
         </aside>
 
-        <!-- Main Content -->
-        <main style="padding: 2rem; overflow-y: auto;">
-            <header style="margin-bottom: 2rem; display: flex; align-items: center; justify-content: space-between;">
-                <div class="flex" style="gap: 1rem; align-items: center;">
-                    <button id="sidebar-toggle" class="btn btn-outline" style="padding: 0.4rem;">☰</button>
-                    <h1 style="font-size: 2rem; color: var(--heading-color);">Account Settings</h1>
+        <!-- Main Area -->
+        <main style="display: flex; flex-direction: column; min-height: 0; flex: 1;">
+            <!-- Topbar -->
+            <header class="topbar">
+                <div class="flex" style="align-items: center; gap: 0.75rem;">
+                    <button id="sidebar-toggle" class="btn btn-outline" style="padding: 0.4rem;">
+                        ☰
+                    </button>
+                    <a href="index.html" class="mobile-logo">
+                        Tax<span style="color: var(--color-accent);">Pro</span>
+                    </a>
+                    <h2 class="page-title"
+                        style="font-size: 1.1rem; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">
+                        Settings</h2>
                 </div>
             </header>
 
-            <div class="settings-grid" style="max-width: 800px;">
+            <!-- Content -->
+            <div class="dashboard-content" style="padding: 2rem; overflow-y: auto; flex: 1;">
+                <div class="settings-grid" style="max-width: 800px;">
 
-                <!-- Preferences -->
-                <div class="settings-card animate-fade-up">
-                    <h2 style="font-size: 1.25rem; margin-bottom: 1.5rem; color: var(--heading-color);">Preferences</h2>
+                    <!-- Preferences -->
+                    <div class="settings-card animate-fade-up">
+                        <h2 style="font-size: 1.25rem; margin-bottom: 1.5rem; color: var(--heading-color);">Preferences
+                        </h2>
 
-                    <div class="flex"
-                        style="justify-content: space-between; align-items: center; margin-bottom: 1.5rem; border-bottom: 1px solid var(--border-color); padding-bottom: 1.5rem;">
-                        <div>
-                            <div style="font-weight: 500;">Dark Mode</div>
-                            <div style="font-size: 0.9rem; color: var(--text-muted);">Switch between light and dark
-                                themes</div>
-                        </div>
-                        <label class="switch">
-                            <input type="checkbox" id="profile-theme-toggle">
-                            <span class="slider"></span>
-                        </label>
-                    </div>
-
-                    <div class="flex"
-                        style="justify-content: space-between; align-items: center; margin-bottom: 1.5rem; border-bottom: 1px solid var(--border-color); padding-bottom: 1.5rem;">
-                        <div>
-                            <div style="font-weight: 500;">RTL Mode (Arabic/Hebrew)</div>
-                            <div style="font-size: 0.9rem; color: var(--text-muted);">Enable right-to-left layout</div>
-                        </div>
-                        <label class="switch">
-                            <input type="checkbox" id="profile-rtl-toggle">
-                            <span class="slider"></span>
-                        </label>
-                    </div>
-
-                    <div class="flex" style="justify-content: space-between; align-items: center;">
-                        <div>
-                            <div style="font-weight: 500;">Email Notifications</div>
-                            <div style="font-size: 0.9rem; color: var(--text-muted);">Receive updates about your filing
-                                status</div>
-                        </div>
-                        <label class="switch">
-                            <input type="checkbox" checked>
-                            <span class="slider"></span>
-                        </label>
-                    </div>
-                </div>
-
-                <!-- Personal Info -->
-                <div class="settings-card animate-fade-up">
-                    <h2 style="font-size: 1.25rem; margin-bottom: 1.5rem; color: var(--heading-color);">Personal
-                        Information</h2>
-                    <form>
-                        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin-bottom: 1.5rem;">
+                        <div class="flex"
+                            style="justify-content: space-between; align-items: center; margin-bottom: 1.5rem; border-bottom: 1px solid var(--border-color); padding-bottom: 1.5rem;">
                             <div>
-                                <label class="form-label">First Name</label>
-                                <input type="text" class="form-input" value="John">
+                                <div style="font-weight: 500;">Dark Mode</div>
+                                <div style="font-size: 0.9rem; color: var(--text-muted);">Switch between light and dark
+                                    themes</div>
                             </div>
+                            <label class="switch">
+                                <input type="checkbox" id="profile-theme-toggle">
+                                <span class="slider"></span>
+                            </label>
+                        </div>
+
+                        <div class="flex"
+                            style="justify-content: space-between; align-items: center; margin-bottom: 1.5rem; border-bottom: 1px solid var(--border-color); padding-bottom: 1.5rem;">
                             <div>
-                                <label class="form-label">Last Name</label>
-                                <input type="text" class="form-input" value="Doe">
+                                <div style="font-weight: 500;">RTL Mode (Arabic/Hebrew)</div>
+                                <div style="font-size: 0.9rem; color: var(--text-muted);">Enable right-to-left layout
+                                </div>
                             </div>
+                            <label class="switch">
+                                <input type="checkbox" id="profile-rtl-toggle">
+                                <span class="slider"></span>
+                            </label>
                         </div>
-                        <div style="margin-bottom: 1.5rem;">
-                            <label class="form-label">Email Address</label>
-                            <input type="email" class="form-input" value="john.doe@example.com">
-                        </div>
-                        <div style="margin-bottom: 1.5rem;">
-                            <label class="form-label">Phone Number</label>
-                            <input type="tel" class="form-input" value="+1 (555) 0123-4567">
-                        </div>
-                        <button type="button" class="btn btn-primary">Save Changes</button>
-                    </form>
-                </div>
 
-                <!-- Security -->
-                <div class="settings-card animate-fade-up">
-                    <h2 style="font-size: 1.25rem; margin-bottom: 1.5rem; color: var(--heading-color);">Security</h2>
-                    <form>
-                        <div style="margin-bottom: 1.5rem;">
-                            <label class="form-label">Current Password</label>
-                            <input type="password" class="form-input" placeholder="••••••••">
+                        <div class="flex" style="justify-content: space-between; align-items: center;">
+                            <div>
+                                <div style="font-weight: 500;">Email Notifications</div>
+                                <div style="font-size: 0.9rem; color: var(--text-muted);">Receive updates about your
+                                    filing
+                                    status</div>
+                            </div>
+                            <label class="switch">
+                                <input type="checkbox" checked>
+                                <span class="slider"></span>
+                            </label>
                         </div>
-                        <div style="margin-bottom: 1.5rem;">
-                            <label class="form-label">New Password</label>
-                            <input type="password" class="form-input" placeholder="••••••••">
-                        </div>
-                        <button type="button" class="btn btn-outline">Update Password</button>
-                    </form>
-                </div>
+                    </div>
 
+                    <!-- Personal Info -->
+                    <div class="settings-card animate-fade-up">
+                        <h2 style="font-size: 1.25rem; margin-bottom: 1.5rem; color: var(--heading-color);">Personal
+                            Information</h2>
+                        <form>
+                            <div
+                                style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin-bottom: 1.5rem;">
+                                <div>
+                                    <label class="form-label">First Name</label>
+                                    <input type="text" class="form-input" value="John">
+                                </div>
+                                <div>
+                                    <label class="form-label">Last Name</label>
+                                    <input type="text" class="form-input" value="Doe">
+                                </div>
+                            </div>
+                            <div style="margin-bottom: 1.5rem;">
+                                <label class="form-label">Email Address</label>
+                                <input type="email" class="form-input" value="john.doe@example.com">
+                            </div>
+                            <div style="margin-bottom: 1.5rem;">
+                                <label class="form-label">Phone Number</label>
+                                <input type="tel" class="form-input" value="+1 (555) 0123-4567">
+                            </div>
+                            <button type="button" class="btn btn-primary">Save Changes</button>
+                        </form>
+                    </div>
+
+                    <!-- Security -->
+                    <div class="settings-card animate-fade-up">
+                        <h2 style="font-size: 1.25rem; margin-bottom: 1.5rem; color: var(--heading-color);">Security
+                        </h2>
+                        <form>
+                            <div style="margin-bottom: 1.5rem;">
+                                <label class="form-label">Current Password</label>
+                                <input type="password" class="form-input" placeholder="••••••••">
+                            </div>
+                            <div style="margin-bottom: 1.5rem;">
+                                <label class="form-label">New Password</label>
+                                <input type="password" class="form-input" placeholder="••••••••">
+                            </div>
+                            <button type="button" class="btn btn-outline">Update Password</button>
+                        </form>
+                    </div>
+
+                </div>
             </div>
         </main>
     </div>
