@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Services - TaxPro Premium</title>
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@500;700&display=swap"
+        rel="stylesheet">
+    <!-- CSS -->
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="icon" type="image/svg+xml" href="assets/images/favicon.svg">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+</head>
+
+<body>
+    <!-- Header -->
+    <header class="site-header glass-panel"
+        style="position: sticky; top: 0; z-index: 1000; margin: 1rem; border-radius: var(--radius-lg);">
+        <div class="container flex" style="justify-content: space-between; align-items: center; padding: 1rem 2rem;">
+            <div class="logo">
+                <a href="index.html"
+                    style="font-family: var(--font-heading); font-size: 1.5rem; font-weight: 700; color: var(--heading-color);">Tax<span
+                        style="color: var(--color-accent);">Pro</span></a>
+            </div>
+            <nav class="desktop-nav flex" style="gap: 2rem; align-items: center;">
+                <a href="index.html" style="color: var(--text-muted); font-size: 0.95rem;">Home</a>
+                <a href="home2.html" style="color: var(--text-muted); font-size: 0.95rem;">Home 2</a>
+                <a href="services.html" style="font-weight: 600; color: var(--heading-color);">Services</a>
+                <a href="about.html" style="color: var(--text-muted); font-size: 0.95rem;">About</a>
+                <a href="contact.html" style="color: var(--text-muted); font-size: 0.95rem;">Contact</a>
+                <a href="dashboard.html" style="color: var(--text-muted); font-size: 0.95rem;">Admin</a>
+            </nav>
+            <div class="header-actions flex" style="gap: 1rem; align-items: center;">
+                <button id="theme-toggle" class="btn btn-outline"
+                    style="padding: 0.5rem; border-radius: 50%;">🌗</button>
+                <button id="rtl-toggle" class="btn btn-outline"
+                    style="font-size: 0.8rem; padding: 0.4rem 0.8rem;">RTL</button>
+                <a href="login.html" class="btn btn-outline mobile-hide">Log In</a>
+                <a href="register.html" class="btn btn-primary mobile-hide">Sign Up</a>
+                <button id="mobile-toggle" class="mobile-nav-toggle">☰</button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Mobile Nav Overlay -->
+    <div id="mobile-overlay" class="mobile-overlay"></div>
+    <nav id="mobile-nav" class="mobile-nav">
+        <a href="index.html">Home</a>
+        <a href="home2.html">Home 2</a>
+        <a href="services.html" class="active">Services</a>
+        <a href="about.html">About</a>
+        <a href="contact.html">Contact</a>
+        <a href="dashboard.html">Admin</a>
+        <hr style="border: 0; border-top: 1px solid var(--border-color); margin: 0.5rem 0;">
+        <a href="register.html" style="color: var(--color-accent); font-weight: 600;">Sign Up</a>
+    </nav>
+
+    <!-- Page Header -->
+    <section class="page-header section-padding"
+        style="background: linear-gradient(to right, var(--color-primary), var(--color-primary-light)); color: white; padding-bottom: 4rem;">
+        <div class="container text-center" style="text-align: center;">
+            <h1 class="animate-fade-up" style="font-size: 3rem; margin-bottom: 1rem;">Our Expertise</h1>
+            <p class="animate-fade-up" style="max-width: 600px; margin: 0 auto; opacity: 0.9;">
+                Comprehensive financial solutions tailored for individuals, freelancers, and corporations.
+            </p>
+        </div>
+    </section>
+
+    <!-- Services Grid -->
+    <section class="services-list section-padding" style="margin-top: -2rem;">
+        <div class="container grid" style="grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 2.5rem;">
+            <!-- Service 1 -->
+            <div class="glass-panel animate-on-scroll" style="overflow: hidden; background: var(--bg-surface);">
+                <img src="https://images.unsplash.com/photo-1554224155-6726b3ff858f?q=80&w=800" alt="Individual Tax"
+                    style="width: 100%; height: 200px; object-fit: cover;">
+                <div style="padding: 2rem;">
+                    <h3 style="font-size: 1.5rem; margin-bottom: 1rem; color: var(--heading-color);">Individual Tax
+                        Preparation</h3>
+                    <p style="color: var(--text-muted); margin-bottom: 1.5rem;">Expert preparation for simple W-2s to
+                        complex itemized returns, maximizing your legally allowed deductions.</p>
+                    <ul
+                        style="list-style: disc; margin-left: 1.2rem; color: var(--text-muted); margin-bottom: 1.5rem; font-size: 0.9rem;">
+                        <li>Federal & State Filing</li>
+                        <li>Education & Child Credits</li>
+                        <li>Investment Income Reporting</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Service 2 -->
+            <div class="glass-panel animate-on-scroll" style="overflow: hidden; background: var(--bg-surface);">
+                <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=800" alt="Corporate Tax"
+                    style="width: 100%; height: 200px; object-fit: cover;">
+                <div style="padding: 2rem;">
+                    <h3 style="font-size: 1.5rem; margin-bottom: 1rem; color: var(--heading-color);">Corporate Tax
+                        Solutions</h3>
+                    <p style="color: var(--text-muted); margin-bottom: 1.5rem;">Strategic tax planning and compliance
+                        for startups to established corporations (LLC, S-Corp, C-Corp).</p>
+                    <ul
+                        style="list-style: disc; margin-left: 1.2rem; color: var(--text-muted); margin-bottom: 1.5rem; font-size: 0.9rem;">
+                        <li>Form 1120 & 1120-S</li>
+                        <li>Tax Mitigation Strategies</li>
+                        <li>Estimated Tax Management</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Service 3 -->
+            <div class="glass-panel animate-on-scroll" style="overflow: hidden; background: var(--bg-surface);">
+                <img src="https://images.unsplash.com/photo-1589829545856-d10d557cf95f?q=80&w=800" alt="Audit Defense"
+                    style="width: 100%; height: 200px; object-fit: cover;">
+                <div style="padding: 2rem;">
+                    <h3 style="font-size: 1.5rem; margin-bottom: 1rem; color: var(--heading-color);">IRS Audit
+                        Representation</h3>
+                    <p style="color: var(--text-muted); margin-bottom: 1.5rem;">Peace of mind representation by Enrolled
+                        Agents who handle all correspondence and negotiations with the IRS.</p>
+                    <ul
+                        style="list-style: disc; margin-left: 1.2rem; color: var(--text-muted); margin-bottom: 1.5rem; font-size: 0.9rem;">
+                        <li>Full Audit Representation</li>
+                        <li>Penalty Abatements</li>
+                        <li>Offer in Compromise</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Service 4 -->
+            <div class="glass-panel animate-on-scroll" style="overflow: hidden; background: var(--bg-surface);">
+                <img src="https://i.pinimg.com/736x/41/d8/69/41d8699229ed3bd63cf723faa543fc95.jpg" alt="Bookkeeping"
+                    style="width: 100%; height: 200px; object-fit: cover;">
+                <div style="padding: 2rem;">
+                    <h3 style="font-size: 1.5rem; margin-bottom: 1rem; color: var(--heading-color);">Bookkeeping &
+                        Accounting</h3>
+                    <p style="color: var(--text-muted); margin-bottom: 1.5rem;">End-to-end financial tracking that keeps
+                        your business organized, compliant, and ready for tax season.</p>
+                    <ul
+                        style="list-style: disc; margin-left: 1.2rem; color: var(--text-muted); margin-bottom: 1.5rem; font-size: 0.9rem;">
+                        <li>Monthly Financial Statements</li>
+                        <li>Bank Reconciliation</li>
+                        <li>Account Payables/Receivables</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Service 5 -->
+            <div class="glass-panel animate-on-scroll" style="overflow: hidden; background: var(--bg-surface);">
+                <img src="https://images.unsplash.com/photo-1526304640581-d334cdbbf45e?q=80&w=800"
+                    alt="International Tax" style="width: 100%; height: 200px; object-fit: cover;">
+                <div style="padding: 2rem;">
+                    <h3 style="font-size: 1.5rem; margin-bottom: 1rem; color: var(--heading-color);">International Tax
+                        Services</h3>
+                    <p style="color: var(--text-muted); margin-bottom: 1.5rem;">Expert guidance for US citizens abroad
+                        and domestic businesses with global operations or foreign interests.</p>
+                    <ul
+                        style="list-style: disc; margin-left: 1.2rem; color: var(--text-muted); margin-bottom: 1.5rem; font-size: 0.9rem;">
+                        <li>Expat Tax Filings</li>
+                        <li>FBAR & FATCA Compliance</li>
+                        <li>Foreign Entity Structuring</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Service 6 -->
+            <div class="glass-panel animate-on-scroll" style="overflow: hidden; background: var(--bg-surface);">
+                <img src="https://images.unsplash.com/photo-1518546305927-5a555bb7020d?q=80&w=800" alt="Crypto Tax"
+                    style="width: 100%; height: 200px; object-fit: cover;">
+                <div style="padding: 2rem;">
+                    <h3 style="font-size: 1.5rem; margin-bottom: 1rem; color: var(--heading-color);">Crypto & Digital
+                        Asset Tax</h3>
+                    <p style="color: var(--text-muted); margin-bottom: 1.5rem;">Specialized tax reporting for
+                        cryptocurrency, NFTs, and DeFi activities to ensure IRS compliance in a digital world.</p>
+                    <ul
+                        style="list-style: disc; margin-left: 1.2rem; color: var(--text-muted); margin-bottom: 1.5rem; font-size: 0.9rem;">
+                        <li>Wallet & Exchange Audits</li>
+                        <li>Capital Gains Calculation</li>
+                        <li>Staking & Airdrop Reporting</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Service 7 -->
+            <div class="glass-panel animate-on-scroll" style="overflow: hidden; background: var(--bg-surface);">
+                <img src="https://i.pinimg.com/736x/bb/fc/d7/bbfcd7161e9d860af6ae63d7036dd8b0.jpg" alt="Real Estate Tax"
+                    style="width: 100%; height: 200px; object-fit: cover;">
+                <div style="padding: 2rem;">
+                    <h3 style="font-size: 1.5rem; margin-bottom: 1rem; color: var(--heading-color);">Real Estate Tax
+                        Strategy</h3>
+                    <p style="color: var(--text-muted); margin-bottom: 1.5rem;">Optimizing tax benefits for property
+                        investors, landlords, and developers through advanced planning and depreciation.</p>
+                    <ul
+                        style="list-style: disc; margin-left: 1.2rem; color: var(--text-muted); margin-bottom: 1.5rem; font-size: 0.9rem;">
+                        <li>1031 Exchange Planning</li>
+                        <li>Cost Segregation Studies</li>
+                        <li>Passive Loss Limitations</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Service 8 -->
+            <div class="glass-panel animate-on-scroll" style="overflow: hidden; background: var(--bg-surface);">
+                <img src="https://i.pinimg.com/736x/23/ab/9c/23ab9cf69f3e8f32b5ccb20a3604fc21.jpg" alt="Estate Planning"
+                    style="width: 100%; height: 200px; object-fit: cover;">
+                <div style="padding: 2rem;">
+                    <h3 style="font-size: 1.5rem; margin-bottom: 1rem; color: var(--heading-color);">Estate & Legacy
+                        Planning</h3>
+                    <p style="color: var(--text-muted); margin-bottom: 1.5rem;">Protecting your assets and ensuring a
+                        seamless transfer of wealth to the next generation with minimal tax impact.</p>
+                    <ul
+                        style="list-style: disc; margin-left: 1.2rem; color: var(--text-muted); margin-bottom: 1.5rem; font-size: 0.9rem;">
+                        <li>Gift Tax Preparation</li>
+                        <li>Trust Structuring</li>
+                        <li>Inheritance Tax Strategy</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Service 9 -->
+            <div class="glass-panel animate-on-scroll" style="overflow: hidden; background: var(--bg-surface);">
+                <img src="https://images.unsplash.com/photo-1507679799987-c73779587ccf?q=80&w=800" alt="Retirement Tax"
+                    style="width: 100%; height: 200px; object-fit: cover;">
+                <div style="padding: 2rem;">
+                    <h3 style="font-size: 1.5rem; margin-bottom: 1rem; color: var(--heading-color);">Retirement Tax
+                        Optimization</h3>
+                    <p style="color: var(--text-muted); margin-bottom: 1.5rem;">Strategically managing your retirement
+                        distributions (401k, IRA, Pension) to protect your nest egg from excessive taxes.</p>
+                    <ul
+                        style="list-style: disc; margin-left: 1.2rem; color: var(--text-muted); margin-bottom: 1.5rem; font-size: 0.9rem;">
+                        <li>Roth Conversion Analysis</li>
+                        <li>RMD Planning</li>
+                        <li>Social Security Taxability</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Service 10 -->
+            <div class="glass-panel animate-on-scroll" style="overflow: hidden; background: var(--bg-surface);">
+                <img src="https://images.unsplash.com/photo-1556742044-3c52d6e88c62?q=80&w=800" alt="Sales Tax"
+                    style="width: 100%; height: 200px; object-fit: cover;">
+                <div style="padding: 2rem;">
+                    <h3 style="font-size: 1.5rem; margin-bottom: 1rem; color: var(--heading-color);">Sales & Use Tax
+                        Compliance</h3>
+                    <p style="color: var(--text-muted); margin-bottom: 1.5rem;">Helping businesses navigate the complex
+                        landscape of multi-state sales tax laws, nexus, and reporting requirements.</p>
+                    <ul
+                        style="list-style: disc; margin-left: 1.2rem; color: var(--text-muted); margin-bottom: 1.5rem; font-size: 0.9rem;">
+                        <li>Nexus Studies</li>
+                        <li>Sales Tax Registration</li>
+                        <li>Audit Risk Assessments</li>
+                    </ul>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Process Workflow (New Content) -->
+    <section class="process section-padding" style="background-color: var(--bg-surface);">
+        <div class="container">
+            <h2 class="text-center"
+                style="font-size: 2.5rem; color: var(--heading-color); margin-bottom: 4rem; text-align: center;">How It
+                Works</h2>
+
+            <div class="grid" style="grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 3rem;">
+                <div class="process-step animate-on-scroll">
+                    <div
+                        style="font-size: 3.5rem; font-weight: 700; color: rgba(16, 185, 129, 0.2); margin-bottom: -1rem; position: relative;">
+                        01</div>
+                    <h3 style="font-size: 1.25rem; margin-bottom: 1rem; color: var(--heading-color);">Sign Up & Profile
+                    </h3>
+                    <p style="color: var(--text-muted);">Create your secure account and complete a brief questionnaire
+                        about your financial situation.</p>
+                </div>
+                <div class="process-step animate-on-scroll">
+                    <div
+                        style="font-size: 3.5rem; font-weight: 700; color: rgba(16, 185, 129, 0.2); margin-bottom: -1rem; position: relative;">
+                        02</div>
+                    <h3 style="font-size: 1.25rem; margin-bottom: 1rem; color: var(--heading-color);">Upload Documents
+                    </h3>
+                    <p style="color: var(--text-muted);">Snap photos or upload PDFs of your W-2s, 1099s, and receipts
+                        directly to our portal.</p>
+                </div>
+                <div class="process-step animate-on-scroll">
+                    <div
+                        style="font-size: 3.5rem; font-weight: 700; color: rgba(16, 185, 129, 0.2); margin-bottom: -1rem; position: relative;">
+                        03</div>
+                    <h3 style="font-size: 1.25rem; margin-bottom: 1rem; color: var(--heading-color);">CPA Review</h3>
+                    <p style="color: var(--text-muted);">A dedicated tax professional reviews your return line-by-line
+                        to ensure 100% accuracy.</p>
+                </div>
+                <div class="process-step animate-on-scroll">
+                    <div
+                        style="font-size: 3.5rem; font-weight: 700; color: rgba(16, 185, 129, 0.2); margin-bottom: -1rem; position: relative;">
+                        04</div>
+                    <h3 style="font-size: 1.25rem; margin-bottom: 1rem; color: var(--heading-color);">File & Refund</h3>
+                    <p style="color: var(--text-muted);">We e-file your return and you track your refund status directly
+                        from your dashboard.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Detailed Pricing Table (New Content) -->
+    <section class="pricing-table section-padding">
+        <div class="container">
+            <div class="text-center" style="text-align: center; margin-bottom: 4rem;">
+                <h2 style="font-size: 2.5rem; margin-bottom: 1rem; color: var(--heading-color);">Clear, Upfront Pricing
+                </h2>
+                <p style="color: var(--text-muted);">No hidden fees. Pay only for what you need.</p>
+            </div>
+
+            <div style="overflow-x: auto;">
+                <table style="width: 100%; border-collapse: collapse; min-width: 600px;">
+                    <thead>
+                        <tr style="border-bottom: 2px solid var(--border-color);">
+                            <th
+                                style="text-align: left; padding: 1.5rem; font-size: 1.1rem; color: var(--heading-color);">
+                                Features</th>
+                            <th style="padding: 1.5rem; font-size: 1.2rem; color: var(--heading-color); width: 20%;">
+                                Basic<br><span
+                                    style="font-size: 0.9rem; font-weight: 400; color: var(--text-muted);">Free</span>
+                            </th>
+                            <th
+                                style="padding: 1.5rem; font-size: 1.2rem; color: var(--color-accent); width: 20%; background: rgba(16, 185, 129, 0.05);">
+                                Premium<br><span
+                                    style="font-size: 0.9rem; font-weight: 400; color: var(--text-muted);">$49</span>
+                            </th>
+                            <th style="padding: 1.5rem; font-size: 1.2rem; color: var(--heading-color); width: 20%;">
+                                Business<br><span
+                                    style="font-size: 0.9rem; font-weight: 400; color: var(--text-muted);">$89</span>
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr style="border-bottom: 1px solid var(--border-color);">
+                            <td style="padding: 1rem 1.5rem; color: var(--text-main);">Federal Filing</td>
+                            <td style="padding: 1rem; text-align: center;">✅</td>
+                            <td style="padding: 1rem; text-align: center; background: rgba(16, 185, 129, 0.05);">✅</td>
+                            <td style="padding: 1rem; text-align: center;">✅</td>
+                        </tr>
+                        <tr style="border-bottom: 1px solid var(--border-color);">
+                            <td style="padding: 1rem 1.5rem; color: var(--text-main);">State Filing</td>
+                            <td style="padding: 1rem; text-align: center;">✅</td>
+                            <td style="padding: 1rem; text-align: center; background: rgba(16, 185, 129, 0.05);">✅</td>
+                            <td style="padding: 1rem; text-align: center;">✅</td>
+                        </tr>
+                        <tr style="border-bottom: 1px solid var(--border-color);">
+                            <td style="padding: 1rem 1.5rem; color: var(--text-main);">Itemized Deductions</td>
+                            <td style="padding: 1rem; text-align: center; color: var(--text-muted);">-</td>
+                            <td style="padding: 1rem; text-align: center; background: rgba(16, 185, 129, 0.05);">✅</td>
+                            <td style="padding: 1rem; text-align: center;">✅</td>
+                        </tr>
+                        <tr style="border-bottom: 1px solid var(--border-color);">
+                            <td style="padding: 1rem 1.5rem; color: var(--text-main);">Investment Income</td>
+                            <td style="padding: 1rem; text-align: center; color: var(--text-muted);">-</td>
+                            <td style="padding: 1rem; text-align: center; background: rgba(16, 185, 129, 0.05);">✅</td>
+                            <td style="padding: 1rem; text-align: center;">✅</td>
+                        </tr>
+                        <tr style="border-bottom: 1px solid var(--border-color);">
+                            <td style="padding: 1rem 1.5rem; color: var(--text-main);">Freelance/Self-Employed</td>
+                            <td style="padding: 1rem; text-align: center; color: var(--text-muted);">-</td>
+                            <td
+                                style="padding: 1rem; text-align: center; background: rgba(16, 185, 129, 0.05); color: var(--text-muted);">
+                                -</td>
+                            <td style="padding: 1rem; text-align: center;">✅</td>
+                        </tr>
+                        <tr style="border-bottom: 1px solid var(--border-color);">
+                            <td style="padding: 1rem 1.5rem; color: var(--text-main);">Audit Defense</td>
+                            <td style="padding: 1rem; text-align: center; color: var(--text-muted);">$19.99</td>
+                            <td style="padding: 1rem; text-align: center; background: rgba(16, 185, 129, 0.05);">
+                                Inclusive</td>
+                            <td style="padding: 1rem; text-align: center;">Inclusive</td>
+                        </tr>
+                        <tr style="border-bottom: 1px solid var(--border-color);">
+                            <td style="padding: 1rem 1.5rem; color: var(--text-main);">Priority Support</td>
+                            <td style="padding: 1rem; text-align: center; color: var(--text-muted);">-</td>
+                            <td style="padding: 1rem; text-align: center; background: rgba(16, 185, 129, 0.05);">✅</td>
+                            <td style="padding: 1rem; text-align: center;">✅</td>
+                        </tr>
+                        <tr>
+                            <td style="padding: 1.5rem;"></td>
+                            <td style="padding: 1.5rem; text-align: center;"><a href="register.html"
+                                    class="btn btn-outline" style="width: 100%;">Choose Basic</a></td>
+                            <td style="padding: 1.5rem; text-align: center; background: rgba(16, 185, 129, 0.05);"><a
+                                    href="register.html" class="btn btn-accent" style="width: 100%;">Choose Premium</a>
+                            </td>
+                            <td style="padding: 1.5rem; text-align: center;"><a href="register.html"
+                                    class="btn btn-primary" style="width: 100%;">Choose Business</a></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer
+        style="background-color: var(--bg-surface); border-top: 1px solid var(--border-color); padding: 5rem 0 2rem;">
+        <div class="container">
+            <div class="grid"
+                style="grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 4rem; margin-bottom: 4rem;">
+                <div class="footer-brand">
+                    <h3 style="margin-bottom: 1.5rem; font-size: 1.5rem; color: var(--heading-color);">Tax<span
+                            style="color: var(--color-accent);">Pro</span></h3>
+                    <p style="color: var(--text-muted); margin-bottom: 2rem; max-width: 300px;">
+                        Professional, secure, and accurate tax preparation services for the modern world. Maximize your
+                        refund with our experts.
+                    </p>
+                    <div class="social-links flex" style="gap: 1rem;">
+                        <a href="#" class="btn btn-outline"
+                            style="padding: 0.6rem; border-radius: 50%; font-size: 1rem;">𝕏</a>
+                        <a href="#" class="btn btn-outline"
+                            style="padding: 0.6rem; border-radius: 50%; font-size: 1rem;">in</a>
+                        <a href="#" class="btn btn-outline"
+                            style="padding: 0.6rem; border-radius: 50%; font-size: 1rem;">ig</a>
+                    </div>
+                </div>
+                <div class="footer-nav">
+                    <h4 style="margin-bottom: 1.5rem; font-size: 1.1rem; color: var(--heading-color);">Quick Links</h4>
+                    <ul style="display: flex; flex-direction: column; gap: 0.8rem;">
+                        <li><a href="index.html" style="color: var(--text-muted);">Home</a></li>
+                        <li><a href="services.html" style="color: var(--text-muted);">Services</a></li>
+                        <li><a href="about.html" style="color: var(--text-muted);">About Us</a></li>
+                        <li><a href="contact.html" style="color: var(--text-muted);">Contact</a></li>
+                        <li><a href="dashboard.html" style="color: var(--text-muted);">Admin Portal</a></li>
+                    </ul>
+                </div>
+                <div class="footer-resources">
+                    <h4 style="margin-bottom: 1.5rem; font-size: 1.1rem; color: var(--heading-color);">Resources</h4>
+                    <ul style="display: flex; flex-direction: column; gap: 0.8rem;">
+                        <li><a href="#" style="color: var(--text-muted);">Tax Deadline Calendar</a></li>
+                        <li><a href="#" style="color: var(--text-muted);">Deduction Checklist</a></li>
+                        <li><a href="#" style="color: var(--text-muted);">Help Center</a></li>
+                        <li><a href="#" style="color: var(--text-muted);">Accessibility</a></li>
+                    </ul>
+                </div>
+                <div class="footer-legal">
+                    <h4 style="margin-bottom: 1.5rem; font-size: 1.1rem; color: var(--heading-color);">Legal</h4>
+                    <ul style="display: flex; flex-direction: column; gap: 0.8rem;">
+                        <li><a href="#" style="color: var(--text-muted);">Privacy Policy</a></li>
+                        <li><a href="#" style="color: var(--text-muted);">Terms of Service</a></li>
+                        <li><a href="#" style="color: var(--text-muted);">Cookie Policy</a></li>
+                        <li><a href="#" style="color: var(--text-muted);">Data Security</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div
+                style="text-align: center; border-top: 1px solid var(--border-color); padding-top: 2.5rem; color: var(--text-muted); font-size: 0.9rem;">
+                &copy; 2026 TaxPro Services. Built with Trust & Accuracy. All rights reserved.
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="assets/js/main.js"></script>
+</body>
+
+</html>

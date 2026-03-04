@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Log In - TaxPro Premium</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@500;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="icon" type="image/svg+xml" href="assets/images/favicon.svg">
+    <style>
+        body {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem;
+            background: linear-gradient(135deg, var(--bg-body) 0%, var(--bg-surface) 100%);
+        }
+
+        .auth-container {
+            max-width: 500px;
+            width: 100%;
+            background: var(--bg-surface);
+            border-radius: var(--radius-xl);
+            box-shadow: var(--shadow-soft);
+            overflow: hidden;
+            border: 1px solid var(--border-color);
+        }
+
+        .auth-content {
+            padding: 3rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+
+
+        .form-group {
+            margin-bottom: 1.25rem;
+        }
+
+        .form-input {
+            width: 100%;
+            padding: 0.9rem 1rem;
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-md);
+            background: var(--bg-body);
+            color: var(--text-main);
+            font-family: inherit;
+        }
+
+        .form-input:focus {
+            outline: 2px solid var(--color-primary);
+            border-color: transparent;
+        }
+
+        .social-btn {
+            width: 100%;
+            padding: 0.75rem;
+            margin-bottom: 0.75rem;
+            border: 1px solid var(--border-color);
+            background: transparent;
+            border-radius: var(--radius-md);
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            color: var(--text-main);
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+
+        .social-btn:hover {
+            background: var(--bg-body);
+            border-color: var(--heading-color);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-soft);
+        }
+
+        .divider {
+            display: flex;
+            align-items: center;
+            text-align: center;
+            color: var(--text-muted);
+            margin: 1.5rem 0;
+            font-size: 0.875rem;
+        }
+
+        .divider::before,
+        .divider::after {
+            content: '';
+            flex: 1;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .divider::before {
+            margin-right: .5em;
+        }
+
+        .divider::after {
+            margin-left: .5em;
+        }
+    </style>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+</head>
+
+<body>
+
+    <div class="auth-container animate-fade-up">
+        <!-- Login Form Section -->
+        <div class="auth-content">
+            <div style="text-align: center; margin-bottom: 2rem;">
+                <a href="index.html"
+                    style="font-family: var(--font-heading); font-size: 1.75rem; font-weight: 700; color: var(--heading-color); display: inline-block;">
+                    Tax<span style="color: var(--color-accent);">Pro</span>
+                </a>
+                <h2 style="margin-top: 1rem; font-size: 1.5rem;">Welcome Back</h2>
+                <p style="color: var(--text-muted);">Please enter your details to sign in.</p>
+            </div>
+
+            <form action="dashboard.html">
+                <div class="form-group">
+                    <label
+                        style="display: block; margin-bottom: 0.5rem; color: var(--text-main); font-size: 0.9rem;">Email
+                        Address</label>
+                    <input type="email" class="form-input" placeholder="Enter your email" required>
+                </div>
+                <div class="form-group">
+                    <label
+                        style="display: block; margin-bottom: 0.5rem; color: var(--text-main); font-size: 0.9rem;">Password</label>
+                    <input type="password" class="form-input" placeholder="••••••••" required>
+                </div>
+
+                <div class="auth-options"
+                    style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 2rem; font-size: 0.95rem;">
+                    <label class="flex"
+                        style="gap: 0.75rem; align-items: center; cursor: pointer; color: var(--text-muted); padding: 0.5rem 0;">
+                        <input type="checkbox"
+                            style="width: 1.1rem; height: 1.1rem; accent-color: var(--heading-color);"> Remember me
+                    </label>
+                    <a href="#"
+                        style="color: var(--heading-color); font-weight: 600; text-decoration: none; padding: 0.5rem 0;">Forgot
+                        Password?</a>
+                </div>
+
+                <style>
+                    @media (max-width: 480px) {
+                        .auth-options {
+                            flex-direction: column;
+                            align-items: flex-start !important;
+                            gap: 0.75rem !important;
+                            margin-bottom: 1.5rem !important;
+                        }
+
+                        .auth-content {
+                            padding: 2.5rem 1.5rem !important;
+                        }
+                    }
+                </style>
+
+                <button type="submit" class="btn btn-primary" style="width: 100%;">Sign In</button>
+            </form>
+
+            <div class="divider">Or continue with</div>
+
+            <button class="social-btn">
+                <img src="https://www.svgrepo.com/show/475656/google-color.svg" width="20" alt="Google">
+                Google
+            </button>
+
+            <p style="text-align: center; margin-top: 1.5rem; color: var(--text-muted); font-size: 0.9rem;">
+                Don't have an account? <a href="register.html"
+                    style="color: var(--heading-color); font-weight: 600;">Sign up</a>
+            </p>
+        </div>
+    </div>
+
+    <!-- Simple Theme Toggle absolute positioning for convenience (optional) -->
+    <button id="theme-toggle"
+        style="position: absolute; top: 1rem; right: 1rem; background: transparent; border: 1px solid var(--border-color); padding: 0.5rem; border-radius: 50%; cursor: pointer;">🌗</button>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="assets/js/main.js"></script>
+</body>
+
+</html>

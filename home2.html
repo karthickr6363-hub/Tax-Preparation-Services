@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TaxPro - Fast & Secure Tax Filing</title>
+    <meta name="description" content="File your taxes in minutes. Maximum refund guaranteed. Start for free.">
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@500;700&display=swap"
+        rel="stylesheet">
+    <!-- CSS -->
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="icon" type="image/svg+xml" href="assets/images/favicon.svg">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+</head>
+
+<body>
+
+    <!-- Header (Consistent) -->
+    <header class="site-header glass-panel"
+        style="position: sticky; top: 0; z-index: 1000; margin: 1rem; border-radius: var(--radius-lg);">
+        <div class="container flex" style="justify-content: space-between; align-items: center; padding: 1rem 2rem;">
+            <div class="logo">
+                <a href="index.html"
+                    style="font-family: var(--font-heading); font-size: 1.5rem; font-weight: 700; color: var(--heading-color);">
+                    Tax<span style="color: var(--color-accent);">Pro</span>
+                </a>
+            </div>
+            <nav class="desktop-nav flex" style="gap: 2rem; align-items: center;">
+                <a href="index.html" style="color: var(--text-muted); font-size: 0.95rem;">Home</a>
+                <a href="home2.html" style="font-weight: 600; color: var(--heading-color);">Home 2</a>
+                <a href="services.html" style="color: var(--text-muted); font-size: 0.95rem;">Services</a>
+                <a href="about.html" style="color: var(--text-muted); font-size: 0.95rem;">About</a>
+                <a href="contact.html" style="color: var(--text-muted); font-size: 0.95rem;">Contact</a>
+                <a href="dashboard.html" style="color: var(--text-muted); font-size: 0.95rem;">Admin</a>
+            </nav>
+            <div class="header-actions flex" style="gap: 1rem; align-items: center;">
+                <button id="theme-toggle" class="btn btn-outline"
+                    style="padding: 0.5rem; border-radius: 50%;">🌗</button>
+                <button id="rtl-toggle" class="btn btn-outline"
+                    style="font-size: 0.8rem; padding: 0.4rem 0.8rem;">RTL</button>
+                <a href="login.html" class="btn btn-outline mobile-hide">Log In</a>
+                <a href="register.html" class="btn btn-primary mobile-hide">Sign Up</a>
+                <button id="mobile-toggle" class="mobile-nav-toggle">☰</button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Mobile Nav Overlay -->
+    <div id="mobile-overlay" class="mobile-overlay"></div>
+    <nav id="mobile-nav" class="mobile-nav">
+        <a href="index.html">Home</a>
+        <a href="home2.html" class="active">Home 2</a>
+        <a href="services.html">Services</a>
+        <a href="about.html">About</a>
+        <a href="contact.html">Contact</a>
+        <a href="dashboard.html">Admin</a>
+        <hr style="border: 0; border-top: 1px solid var(--border-color); margin: 0.5rem 0;">
+        <a href="register.html" style="color: var(--color-accent); font-weight: 600;">Sign Up</a>
+    </nav>
+
+    <!-- Marketing Hero -->
+    <section class="hero section-padding"
+        style="background: linear-gradient(180deg, rgba(235, 240, 255, 0.5) 0%, transparent 100%);">
+        <div class="container grid"
+            style="grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 4rem; align-items: center;">
+            <div class="content animate-fade-up">
+                <div class="badge-pill"
+                    style="display: inline-block; background: rgba(16, 185, 129, 0.1); color: var(--color-accent); padding: 0.5rem 1rem; border-radius: 2rem; font-size: 0.875rem; font-weight: 600; margin-bottom: 1.5rem;">
+                    🚀 #1 Rated Tax Software 2026
+                </div>
+                <h1 style="font-size: clamp(2.5rem, 5vw, 3.5rem); margin-bottom: 1.5rem; color: var(--heading-color);">
+                    File Taxes Smarter, <br> Not Harder.
+                </h1>
+                <p style="font-size: 1.125rem; color: var(--text-muted); margin-bottom: 2rem;">
+                    Don't leave money on the table. Our AI-driven platform searches over 350 deductions to find every
+                    dollar you deserve.
+                </p>
+
+                <!-- Lead Capture Form (Inline) -->
+                <div class="lead-form glass-panel" style="padding: 1.5rem; max-width: 450px;">
+                    <form action="#" style="display: flex; gap: 0.5rem; flex-direction: column;">
+                        <input type="email" placeholder="Enter your email address"
+                            style="padding: 1rem; border: 1px solid var(--border-color); border-radius: var(--radius-md); font-family: inherit; width: 100%;">
+                        <button type="submit" class="btn btn-accent" style="width: 100%;">Get My Free Estimate</button>
+                    </form>
+                    <p style="font-size: 0.875rem; color: var(--text-muted); margin-top: 0.75rem; text-align: center;">
+                        No credit card required. Secure & Private.</p>
+                </div>
+            </div>
+
+            <div class="stats-grid grid animate-fade-up" style="grid-template-columns: repeat(2, 1fr); gap: 1.5rem;">
+                <div class="stat-card glass-panel" style="padding: 2rem; text-align: center;">
+                    <div style="font-size: 2.5rem; font-weight: 700; color: var(--heading-color);">$<span
+                            class="counter">3.2</span>B+</div>
+                    <div style="color: var(--text-muted); font-size: 0.9rem;">Refunds Secured</div>
+                </div>
+                <div class="stat-card glass-panel" style="padding: 2rem; text-align: center;">
+                    <div style="font-size: 2.5rem; font-weight: 700; color: var(--color-accent);"><span
+                            class="counter">100</span>%</div>
+                    <div style="color: var(--text-muted); font-size: 0.9rem;">Accuracy Guarantee</div>
+                </div>
+                <div class="stat-card glass-panel" style="padding: 2rem; text-align: center;">
+                    <div style="font-size: 2.5rem; font-weight: 700; color: var(--heading-color);"><span
+                            class="counter">5</span>m+</div>
+                    <div style="color: var(--text-muted); font-size: 0.9rem;">Happy Users</div>
+                </div>
+                <div class="stat-card glass-panel" style="padding: 2rem; text-align: center;">
+                    <div style="font-size: 2.5rem; font-weight: 700; color: var(--color-accent);">24/7</div>
+                    <div style="color: var(--text-muted); font-size: 0.9rem;">Expert Support</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Cards -->
+    <section class="pricing section-padding">
+        <div class="container">
+            <div class="text-center" style="text-align: center; margin-bottom: 4rem;">
+                <h2 style="font-size: 2.5rem; margin-bottom: 1rem; color: var(--heading-color);">Transparent Pricing
+                </h2>
+                <p style="color: var(--text-muted);">Choose the plan that fits your needs. No hidden fees.</p>
+            </div>
+
+            <div class="grid" style="grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem;">
+                <!-- Basic -->
+                <div class="pricing-card glass-panel animate-on-scroll"
+                    style="padding: 2.5rem; border: 1px solid var(--border-color);">
+                    <h3 style="margin-bottom: 0.5rem; color: var(--heading-color);">Basic</h3>
+                    <p style="color: var(--text-muted); margin-bottom: 2rem;">Simple returns (W-2 only)</p>
+                    <div style="font-size: 3rem; font-weight: 700; color: var(--heading-color); margin-bottom: 2rem;">
+                        Free</div>
+                    <ul style="margin-bottom: 2rem; display: flex; flex-direction: column; gap: 1rem;">
+                        <li style="margin-bottom: 0.8rem;">✓ Federal & State Return</li>
+                        <li style="margin-bottom: 0.8rem;">✓ Step-by-step guidance</li>
+
+                    </ul>
+                    <a href="register.html" class="btn btn-outline" style="width: 100%;">Get Started</a>
+                </div>
+
+                <!-- Premium -->
+                <div class="pricing-card glass-panel animate-on-scroll"
+                    style="padding: 2.5rem; border: 2px solid var(--color-accent); position: relative; transform: scale(1.05);">
+                    <div
+                        style="position: absolute; top: -12px; left: 50%; transform: translateX(-50%); background: var(--color-accent); color: white; padding: 0.25rem 1rem; border-radius: 1rem; font-size: 0.8rem; font-weight: 600;">
+                        MOST POPULAR</div>
+                    <h3 style="margin-bottom: 0.5rem; color: var(--heading-color);">Premium</h3>
+                    <p style="color: var(--text-muted); margin-bottom: 2rem;">Homeowners & Deductions</p>
+                    <div style="font-size: 3rem; font-weight: 700; color: var(--heading-color); margin-bottom: 2rem;">
+                        $49</div>
+                    <ul style="margin-bottom: 2rem;">
+                        <li style="margin-bottom: 0.8rem;">✓ Everything in Basic</li>
+                        <li style="margin-bottom: 0.8rem;">✓ Mortgage Interest</li>
+                        <li style="margin-bottom: 0.8rem;">✓ Charitable Donations</li>
+                    </ul>
+                    <a href="register.html" class="btn btn-accent" style="width: 100%;">Start Premium</a>
+                </div>
+
+                <!-- Business -->
+                <div class="pricing-card glass-panel animate-on-scroll"
+                    style="padding: 2.5rem; border: 1px solid var(--border-color);">
+                    <h3 style="margin-bottom: 0.5rem; color: var(--heading-color);">Business</h3>
+                    <p style="color: var(--text-muted); margin-bottom: 2rem;">Freelancers & Self-Employed</p>
+                    <div style="font-size: 3rem; font-weight: 700; color: var(--heading-color); margin-bottom: 2rem;">
+                        $89</div>
+                    <ul style="margin-bottom: 2rem;">
+                        <li style="margin-bottom: 0.8rem;">✓ Personal + Business</li>
+                        <li style="margin-bottom: 0.8rem;">✓ 1099 Income Support</li>
+                        <li style="margin-bottom: 0.8rem;">✓ Asset Depreciation</li>
+                    </ul>
+                    <a href="register.html" class="btn btn-primary" style="width: 100%;">Start Business</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials (Social Proof) -->
+    <section class="testimonials section-padding" style="background-color: var(--heading-color); color: white;">
+        <div class="container">
+            <div class="text-center" style="text-align: center; margin-bottom: 4rem;">
+                <h2 style="font-size: 2.5rem; margin-bottom: 1rem; color: white;">Don't just take our word for it</h2>
+                <p style="color: rgba(255,255,255,0.7);">Join 5 million+ Americans who trust TaxPro.</p>
+            </div>
+
+            <div class="grid" style="grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem;">
+                <!-- Review 1 -->
+                <div class="animate-on-scroll"
+                    style="background: rgba(255,255,255,0.1); padding: 2rem; border-radius: var(--radius-lg); backdrop-filter: blur(10px);">
+                    <div style="color: #FBBF24; font-size: 1.25rem; margin-bottom: 1rem;">★★★★★</div>
+                    <p style="margin-bottom: 1.5rem; line-height: 1.6;">"I was dreading tax season, but TaxPro made it
+                        surprisingly easy. I uploaded my W-2, answered a few questions, and was done in 15 minutes."</p>
+                    <div class="flex" style="align-items: center; gap: 1rem;">
+                        <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?q=80&w=150"
+                            style="border-radius: 50%; width: 50px; height: 50px; object-fit: cover;" alt="Jennifer D.">
+                        <div>
+                            <div style="font-weight: 600;">Jennifer D.</div>
+                            <div style="font-size: 0.85rem; opacity: 0.7;">Filed via Mobile</div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Review 2 -->
+                <div class="animate-on-scroll"
+                    style="background: rgba(255,255,255,0.1); padding: 2rem; border-radius: var(--radius-lg); backdrop-filter: blur(10px);">
+                    <div style="color: #FBBF24; font-size: 1.25rem; margin-bottom: 1rem;">★★★★★</div>
+                    <p style="margin-bottom: 1.5rem; line-height: 1.6;">"Got my biggest refund ever! The software found
+                        education credits I didn't know I qualified for. Worth every penny of the Premium plan."</p>
+                    <div class="flex" style="align-items: center; gap: 1rem;">
+                        <img src="https://images.unsplash.com/photo-1547425260-76bcadfb4f2c?q=80&w=150"
+                            style="border-radius: 50%; width: 50px; height: 50px; object-fit: cover;" alt="Michael S.">
+                        <div>
+                            <div style="font-weight: 600;">Michael S.</div>
+                            <div style="font-size: 0.85rem; opacity: 0.7;">Premium User</div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Review 3 -->
+                <div class="animate-on-scroll"
+                    style="background: rgba(255,255,255,0.1); padding: 2rem; border-radius: var(--radius-lg); backdrop-filter: blur(10px);">
+                    <div style="color: #FBBF24; font-size: 1.25rem; margin-bottom: 1rem;">★★★★★</div>
+                    <p style="margin-bottom: 1.5rem; line-height: 1.6;">"As a freelancer, taxes are a nightmare.
+                        TaxPro's business tier handled my 1099s and expenses perfectly. The visuals are great too!"</p>
+                    <div class="flex" style="align-items: center; gap: 1rem;">
+                        <img src="https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?q=80&w=150"
+                            style="border-radius: 50%; width: 50px; height: 50px; object-fit: cover;" alt="Alex K.">
+                        <div>
+                            <div style="font-weight: 600;">Alex K.</div>
+                            <div style="font-size: 0.85rem; opacity: 0.7;">Freelance Designer</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="faq section-padding" style="background-color: var(--bg-surface);">
+        <div class="container" style="max-width: 800px;">
+            <div class="text-center" style="text-align: center; margin-bottom: 4rem;">
+                <h2 style="font-size: 2.5rem; margin-bottom: 1rem; color: var(--heading-color);">Frequently Asked
+                    Questions</h2>
+            </div>
+
+            <div class="faq-accordion animate-on-scroll">
+                <details
+                    style="margin-bottom: 1rem; padding: 1.5rem; background: var(--bg-card); border-radius: var(--radius-md); box-shadow: var(--shadow-card);">
+                    <summary
+                        style="font-weight: 600; cursor: pointer; color: var(--heading-color); font-size: 1.1rem; list-style: none;">
+                        Is it really free?</summary>
+                    <p style="margin-top: 1rem; color: var(--text-muted);">Yes, for simple tax situations (W-2 income
+                        only), both federal and state filing are completely free.</p>
+                </details>
+                <details
+                    style="margin-bottom: 1rem; padding: 1.5rem; background: var(--bg-card); border-radius: var(--radius-md); box-shadow: var(--shadow-card);">
+                    <summary
+                        style="font-weight: 600; cursor: pointer; color: var(--heading-color); font-size: 1.1rem; list-style: none;">
+                        How secure is my data?</summary>
+                    <p style="margin-top: 1rem; color: var(--text-muted);">We use bank-grade 256-bit encryption and
+                        multi-factor authentication to ensure your data stays safe.</p>
+                </details>
+                <details
+                    style="margin-bottom: 1rem; padding: 1.5rem; background: var(--bg-card); border-radius: var(--radius-md); box-shadow: var(--shadow-card);">
+                    <summary
+                        style="font-weight: 600; cursor: pointer; color: var(--heading-color); font-size: 1.1rem; list-style: none;">
+                        Can I import last year's return?</summary>
+                    <p style="margin-top: 1rem; color: var(--text-muted);">Absolutely. We support importing PDFs from
+                        TurboTax, H&R Block, and others.</p>
+                </details>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer
+        style="background-color: var(--bg-surface); border-top: 1px solid var(--border-color); padding: 5rem 0 2rem;">
+        <div class="container">
+            <div class="grid"
+                style="grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 4rem; margin-bottom: 4rem;">
+                <div class="footer-brand">
+                    <h3 style="margin-bottom: 1.5rem; font-size: 1.5rem; color: var(--heading-color);">Tax<span
+                            style="color: var(--color-accent);">Pro</span></h3>
+                    <p style="color: var(--text-muted); margin-bottom: 2rem; max-width: 300px;">
+                        Professional, secure, and accurate tax preparation services for the modern world. Maximize your
+                        refund with our experts.
+                    </p>
+                    <div class="social-links flex" style="gap: 1rem;">
+                        <a href="#" class="btn btn-outline"
+                            style="padding: 0.6rem; border-radius: 50%; font-size: 1rem;">𝕏</a>
+                        <a href="#" class="btn btn-outline"
+                            style="padding: 0.6rem; border-radius: 50%; font-size: 1rem;">in</a>
+                        <a href="#" class="btn btn-outline"
+                            style="padding: 0.6rem; border-radius: 50%; font-size: 1rem;">ig</a>
+                    </div>
+                </div>
+                <div class="footer-nav">
+                    <h4 style="margin-bottom: 1.5rem; font-size: 1.1rem; color: var(--heading-color);">Quick Links</h4>
+                    <ul style="display: flex; flex-direction: column; gap: 0.8rem;">
+                        <li><a href="index.html" style="color: var(--text-muted);">Home</a></li>
+                        <li><a href="services.html" style="color: var(--text-muted);">Services</a></li>
+                        <li><a href="about.html" style="color: var(--text-muted);">About Us</a></li>
+                        <li><a href="contact.html" style="color: var(--text-muted);">Contact</a></li>
+                        <li><a href="dashboard.html" style="color: var(--text-muted);">Admin Portal</a></li>
+                    </ul>
+                </div>
+                <div class="footer-resources">
+                    <h4 style="margin-bottom: 1.5rem; font-size: 1.1rem; color: var(--heading-color);">Resources</h4>
+                    <ul style="display: flex; flex-direction: column; gap: 0.8rem;">
+                        <li><a href="#" style="color: var(--text-muted);">Tax Deadline Calendar</a></li>
+                        <li><a href="#" style="color: var(--text-muted);">Deduction Checklist</a></li>
+                        <li><a href="#" style="color: var(--text-muted);">Help Center</a></li>
+                        <li><a href="#" style="color: var(--text-muted);">Accessibility</a></li>
+                    </ul>
+                </div>
+                <div class="footer-legal">
+                    <h4 style="margin-bottom: 1.5rem; font-size: 1.1rem; color: var(--heading-color);">Legal</h4>
+                    <ul style="display: flex; flex-direction: column; gap: 0.8rem;">
+                        <li><a href="#" style="color: var(--text-muted);">Privacy Policy</a></li>
+                        <li><a href="#" style="color: var(--text-muted);">Terms of Service</a></li>
+                        <li><a href="#" style="color: var(--text-muted);">Cookie Policy</a></li>
+                        <li><a href="#" style="color: var(--text-muted);">Data Security</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div
+                style="text-align: center; border-top: 1px solid var(--border-color); padding-top: 2.5rem; color: var(--text-muted); font-size: 0.9rem;">
+                &copy; 2026 TaxPro Services. Built with Trust & Accuracy. All rights reserved.
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="assets/js/main.js"></script>
+</body>
+
+</html>

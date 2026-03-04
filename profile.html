@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Settings - TaxPro Premium</title>
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@500;700&display=swap"
+        rel="stylesheet">
+    <!-- CSS -->
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="icon" type="image/svg+xml" href="assets/images/favicon.svg">
+    <style>
+        .dashboard-layout {
+            display: grid;
+            grid-template-columns: 260px 1fr;
+            min-height: 100vh;
+            background-color: var(--bg-body);
+        }
+
+        @media (max-width: 1024px) {
+            .dashboard-layout {
+                grid-template-columns: 1fr;
+            }
+
+            .sidebar {
+                display: none;
+            }
+
+            .sidebar.active {
+                display: flex;
+                position: fixed;
+                top: 0;
+                left: 0;
+                bottom: 0;
+                z-index: 2000;
+                width: 260px;
+            }
+
+            .sidebar-overlay {
+                display: none;
+                position: fixed;
+                inset: 0;
+                background: rgba(0, 0, 0, 0.5);
+                z-index: 1000;
+            }
+
+            .sidebar-overlay.active {
+                display: block;
+            }
+        }
+
+        .sidebar {
+            background: var(--bg-surface);
+            border-right: 1px solid var(--border-color);
+            display: flex;
+            flex-direction: column;
+            padding: 1.5rem;
+        }
+
+        .nav-item {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            padding: 0.75rem 1rem;
+            color: var(--text-muted);
+            border-radius: var(--radius-md);
+            margin-bottom: 0.5rem;
+            transition: all 0.2s;
+            font-weight: 500;
+        }
+
+        .nav-item:hover,
+        .nav-item.active {
+            background: var(--color-primary);
+            color: white;
+        }
+
+        [data-theme="dark"] .nav-item:hover,
+        [data-theme="dark"] .nav-item.active {
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        .settings-card {
+            background: var(--bg-surface);
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-lg);
+            padding: 2rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .form-label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+            color: var(--text-main);
+        }
+
+        .form-input {
+            width: 100%;
+            padding: 0.8rem 1rem;
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-md);
+            background: var(--bg-body);
+            color: var(--text-main);
+        }
+
+        .switch {
+            position: relative;
+            display: inline-block;
+            width: 50px;
+            height: 24px;
+        }
+
+        .switch input {
+            opacity: 0;
+            width: 0;
+            height: 0;
+        }
+
+        .slider {
+            position: absolute;
+            cursor: pointer;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: #ccc;
+            transition: .4s;
+            border-radius: 34px;
+        }
+
+        .slider:before {
+            position: absolute;
+            content: "";
+            height: 16px;
+            width: 16px;
+            left: 4px;
+            bottom: 4px;
+            background-color: white;
+            transition: .4s;
+            border-radius: 50%;
+        }
+
+        input:checked+.slider {
+            background-color: var(--color-accent);
+        }
+
+        input:checked+.slider:before {
+            transform: translateX(26px);
+        }
+
+        #sidebar-toggle {
+            display: none;
+        }
+
+        @media (max-width: 1024px) {
+            #sidebar-toggle {
+                display: flex;
+            }
+        }
+    </style>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+</head>
+
+<body>
+    <div class="sidebar-overlay" id="sidebar-overlay"></div>
+    <div class="dashboard-layout">
+
+        <!-- Sidebar -->
+        <aside class="sidebar" id="sidebar">
+            <div class="logo" style="margin-bottom: 3rem;">
+                <a href="index.html"
+                    style="font-family: var(--font-heading); font-size: 1.5rem; font-weight: 700; color: var(--heading-color);">
+                    Tax<span style="color: var(--color-accent);">Pro</span>
+                </a>
+            </div>
+
+            <nav style="flex: 1;">
+                <a href="dashboard.html" class="nav-item">
+                    <span>📊</span> Dashboard
+                </a>
+                <a href="#" class="nav-item">
+                    <span>📁</span> My Filings
+                </a>
+                <a href="#" class="nav-item">
+                    <span>📤</span> Upload Docs
+                </a>
+                <a href="#" class="nav-item">
+                    <span>💬</span> Messages
+                </a>
+                <a href="#" class="nav-item active">
+                    <span>⚙️</span> Settings
+                </a>
+            </nav>
+
+            <div class="user-profile" style="border-top: 1px solid var(--border-color); padding-top: 1.5rem;">
+                <div class="flex" style="align-items: center; gap: 0.75rem; margin-bottom: 1rem;">
+                    <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?q=80&w=150"
+                        style="border-radius: 50%; width: 40px; height: 40px; object-fit: cover;" alt="John Doe">
+                    <div>
+                        <div style="font-weight: 600; font-size: 0.9rem;">John Doe</div>
+                        <div style="font-size: 0.8rem; color: var(--text-muted);">Premium Plan</div>
+                    </div>
+                </div>
+                <a href="index.html" class="btn btn-outline"
+                    style="width: 100%; justify-content: center; font-size: 0.9rem; padding: 0.5rem;">Log Out</a>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main style="padding: 2rem; overflow-y: auto;">
+            <header style="margin-bottom: 2rem; display: flex; align-items: center; justify-content: space-between;">
+                <div class="flex" style="gap: 1rem; align-items: center;">
+                    <button id="sidebar-toggle" class="btn btn-outline" style="padding: 0.4rem;">☰</button>
+                    <h1 style="font-size: 2rem; color: var(--heading-color);">Account Settings</h1>
+                </div>
+            </header>
+
+            <div class="settings-grid" style="max-width: 800px;">
+
+                <!-- Preferences -->
+                <div class="settings-card animate-fade-up">
+                    <h2 style="font-size: 1.25rem; margin-bottom: 1.5rem; color: var(--heading-color);">Preferences</h2>
+
+                    <div class="flex"
+                        style="justify-content: space-between; align-items: center; margin-bottom: 1.5rem; border-bottom: 1px solid var(--border-color); padding-bottom: 1.5rem;">
+                        <div>
+                            <div style="font-weight: 500;">Dark Mode</div>
+                            <div style="font-size: 0.9rem; color: var(--text-muted);">Switch between light and dark
+                                themes</div>
+                        </div>
+                        <label class="switch">
+                            <input type="checkbox" id="profile-theme-toggle">
+                            <span class="slider"></span>
+                        </label>
+                    </div>
+
+                    <div class="flex"
+                        style="justify-content: space-between; align-items: center; margin-bottom: 1.5rem; border-bottom: 1px solid var(--border-color); padding-bottom: 1.5rem;">
+                        <div>
+                            <div style="font-weight: 500;">RTL Mode (Arabic/Hebrew)</div>
+                            <div style="font-size: 0.9rem; color: var(--text-muted);">Enable right-to-left layout</div>
+                        </div>
+                        <label class="switch">
+                            <input type="checkbox" id="profile-rtl-toggle">
+                            <span class="slider"></span>
+                        </label>
+                    </div>
+
+                    <div class="flex" style="justify-content: space-between; align-items: center;">
+                        <div>
+                            <div style="font-weight: 500;">Email Notifications</div>
+                            <div style="font-size: 0.9rem; color: var(--text-muted);">Receive updates about your filing
+                                status</div>
+                        </div>
+                        <label class="switch">
+                            <input type="checkbox" checked>
+                            <span class="slider"></span>
+                        </label>
+                    </div>
+                </div>
+
+                <!-- Personal Info -->
+                <div class="settings-card animate-fade-up">
+                    <h2 style="font-size: 1.25rem; margin-bottom: 1.5rem; color: var(--heading-color);">Personal
+                        Information</h2>
+                    <form>
+                        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin-bottom: 1.5rem;">
+                            <div>
+                                <label class="form-label">First Name</label>
+                                <input type="text" class="form-input" value="John">
+                            </div>
+                            <div>
+                                <label class="form-label">Last Name</label>
+                                <input type="text" class="form-input" value="Doe">
+                            </div>
+                        </div>
+                        <div style="margin-bottom: 1.5rem;">
+                            <label class="form-label">Email Address</label>
+                            <input type="email" class="form-input" value="john.doe@example.com">
+                        </div>
+                        <div style="margin-bottom: 1.5rem;">
+                            <label class="form-label">Phone Number</label>
+                            <input type="tel" class="form-input" value="+1 (555) 0123-4567">
+                        </div>
+                        <button type="button" class="btn btn-primary">Save Changes</button>
+                    </form>
+                </div>
+
+                <!-- Security -->
+                <div class="settings-card animate-fade-up">
+                    <h2 style="font-size: 1.25rem; margin-bottom: 1.5rem; color: var(--heading-color);">Security</h2>
+                    <form>
+                        <div style="margin-bottom: 1.5rem;">
+                            <label class="form-label">Current Password</label>
+                            <input type="password" class="form-input" placeholder="••••••••">
+                        </div>
+                        <div style="margin-bottom: 1.5rem;">
+                            <label class="form-label">New Password</label>
+                            <input type="password" class="form-input" placeholder="••••••••">
+                        </div>
+                        <button type="button" class="btn btn-outline">Update Password</button>
+                    </form>
+                </div>
+
+            </div>
+        </main>
+    </div>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="assets/js/main.js"></script>
+    <script>
+        // Specific Profile Logic
+        const profileThemeToggle = document.getElementById('profile-theme-toggle');
+        const profileRtlToggle = document.getElementById('profile-rtl-toggle');
+
+        // Sync with global state on load
+        const currentTheme = localStorage.getItem('theme') || 'light';
+        if (profileThemeToggle) profileThemeToggle.checked = currentTheme === 'dark';
+
+        const currentDir = localStorage.getItem('dir') || 'ltr';
+        if (profileRtlToggle) profileRtlToggle.checked = currentDir === 'rtl';
+
+        // Add listeners
+        if (profileThemeToggle) {
+            profileThemeToggle.addEventListener('change', (e) => {
+                const newTheme = e.target.checked ? 'dark' : 'light';
+                document.documentElement.setAttribute('data-theme', newTheme);
+                localStorage.setItem('theme', newTheme);
+            });
+        }
+
+        if (profileRtlToggle) {
+            profileRtlToggle.addEventListener('change', (e) => {
+                const newDir = e.target.checked ? 'rtl' : 'ltr';
+                document.documentElement.setAttribute('dir', newDir);
+                localStorage.setItem('dir', newDir);
+            });
+        }
+
+        // Sidebar Mobile Logic
+        const sidebar = document.getElementById('sidebar');
+        const sidebarToggle = document.getElementById('sidebar-toggle');
+        const sidebarOverlay = document.getElementById('sidebar-overlay');
+
+        if (sidebarToggle) {
+            sidebarToggle.addEventListener('click', () => {
+                sidebar.classList.toggle('active');
+                sidebarOverlay.classList.toggle('active');
+            });
+        }
+
+        if (sidebarOverlay) {
+            sidebarOverlay.addEventListener('click', () => {
+                sidebar.classList.remove('active');
+                sidebarOverlay.classList.remove('active');
+            });
+        }
+    </script>
+</body>
+
+</html>
