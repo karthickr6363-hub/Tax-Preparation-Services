@@ -50,7 +50,7 @@
         /* Widgets */
         .widget-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 1.5rem;
             margin-bottom: 2rem;
         }
@@ -92,10 +92,12 @@
 
         <!-- Sidebar -->
         <aside class="sidebar" id="sidebar">
-            <div class="logo" style="margin-bottom: 3.5rem;">
+            <div class="logo" style="margin-bottom: 3.5rem; position: relative;">
                 <a href="index.html">
                     Tax<span style="color: var(--color-accent);">Pro</span>
                 </a>
+                <button class="sidebar-close" id="sidebar-close"
+                    style="display: none; background: none; border: none; padding: 0;">&times;</button>
             </div>
 
             <!-- Section 1: Main Nav -->
@@ -211,13 +213,14 @@
                 </div>
 
                 <!-- Main Widgets: Chart & Tasks -->
-                <div class="grid" style="grid-template-columns: repeat(auto-fit, minmax(400px, 1fr)); gap: 1.5rem;">
+                <div class="grid"
+                    style="grid-template-columns: repeat(auto-fit, minmax(min(100%, 400px), 1fr)); gap: 1.5rem;">
 
                     <!-- Revenue/Deduction Chart -->
                     <div class="status-card" style="grid-column: span 1;">
                         <h3 style="margin-bottom: 1.5rem; font-size: 1.1rem;">Deduction Analysis</h3>
-                        <div style="position: relative; height: 300px; width: 100%;">
-                            <canvas id="revenueChart"></canvas>
+                        <div style="position: relative; height: 300px; width: 100%; overflow-x: auto;">
+                            <canvas id="revenueChart" style="min-width: 300px;"></canvas>
                         </div>
                     </div>
 
@@ -227,23 +230,25 @@
                         <div class="task-list">
                             <div class="flex"
                                 style="align-items: center; gap: 0.75rem; padding: 0.75rem 0; border-bottom: 1px solid var(--border-color);">
-                                <input type="checkbox" checked style="accent-color: var(--color-accent);">
-                                <span style="text-decoration: line-through; color: var(--text-muted);">Upload W-2
-                                    Form</span>
+                                <input type="checkbox" checked
+                                    style="accent-color: var(--color-accent); flex-shrink: 0;">
+                                <span
+                                    style="text-decoration: line-through; color: var(--text-muted); line-height: 1.4;">Upload
+                                    W-2 Form</span>
                             </div>
                             <div class="flex"
                                 style="align-items: center; gap: 0.75rem; padding: 0.75rem 0; border-bottom: 1px solid var(--border-color);">
-                                <input type="checkbox" style="accent-color: var(--color-accent);">
-                                <span>Upload Mortgage Statement (1098)</span>
+                                <input type="checkbox" style="accent-color: var(--color-accent); flex-shrink: 0;">
+                                <span style="line-height: 1.4;">Upload Mortgage Statement (1098)</span>
                             </div>
                             <div class="flex"
                                 style="align-items: center; gap: 0.75rem; padding: 0.75rem 0; border-bottom: 1px solid var(--border-color);">
-                                <input type="checkbox" style="accent-color: var(--color-accent);">
-                                <span>Confirm Dependent Details</span>
+                                <input type="checkbox" style="accent-color: var(--color-accent); flex-shrink: 0;">
+                                <span style="line-height: 1.4;">Confirm Dependent Details</span>
                             </div>
                             <div class="flex" style="align-items: center; gap: 0.75rem; padding: 0.75rem 0;">
-                                <input type="checkbox" style="accent-color: var(--color-accent);">
-                                <span>Sign Final Return</span>
+                                <input type="checkbox" style="accent-color: var(--color-accent); flex-shrink: 0;">
+                                <span style="line-height: 1.4;">Sign Final Return</span>
                             </div>
                         </div>
                     </div>
@@ -253,34 +258,36 @@
                 <!-- Recent Activity -->
                 <div class="status-card" style="margin-top: 1.5rem;">
                     <h3 style="margin-bottom: 1.5rem; font-size: 1.1rem;">Recent Activity</h3>
-                    <table style="width: 100%; text-align: left; border-collapse: collapse;">
-                        <thead>
-                            <tr style="border-bottom: 1px solid var(--border-color); color: var(--text-muted);">
-                                <th style="padding: 0.75rem 0; font-weight: 500;">Action</th>
-                                <th style="padding: 0.75rem 0; font-weight: 500;">Date</th>
-                                <th style="padding: 0.75rem 0; font-weight: 500; text-align: right;">Status</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr style="border-bottom: 1px solid var(--border-color);">
-                                <td style="padding: 1rem 0;">Document Uploaded: W-2</td>
-                                <td style="padding: 1rem 0; color: var(--text-muted);">Today, 10:23 AM</td>
-                                <td style="padding: 1rem 0; text-align: right; color: var(--color-accent);">Completed
-                                </td>
-                            </tr>
-                            <tr style="border-bottom: 1px solid var(--border-color);">
-                                <td style="padding: 1rem 0;">Profile Updated</td>
-                                <td style="padding: 1rem 0; color: var(--text-muted);">Yesterday</td>
-                                <td style="padding: 1rem 0; text-align: right; color: var(--color-accent);">Completed
-                                </td>
-                            </tr>
-                            <tr>
-                                <td style="padding: 1rem 0;">CPA Message Received</td>
-                                <td style="padding: 1rem 0; color: var(--text-muted);">Jan 28, 2026</td>
-                                <td style="padding: 1rem 0; text-align: right; color: #F59E0B;">Pending</td>
-                            </tr>
-                        </tbody>
-                    </table>
+                    <div class="table-responsive">
+                        <table style="width: 100%; text-align: left; border-collapse: collapse;">
+                            <thead>
+                                <tr style="border-bottom: 1px solid var(--border-color); color: var(--text-muted);">
+                                    <th style="padding: 0.75rem 0; font-weight: 500;">Action</th>
+                                    <th style="padding: 0.75rem 0; font-weight: 500;">Date</th>
+                                    <th style="padding: 0.75rem 0; font-weight: 500; text-align: right;">Status</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr style="border-bottom: 1px solid var(--border-color);">
+                                    <td style="padding: 1rem 0;">Document Uploaded: W-2</td>
+                                    <td style="padding: 1rem 0; color: var(--text-muted);">Today, 10:23 AM</td>
+                                    <td style="padding: 1rem 0; text-align: right; color: var(--color-accent);">Completed
+                                    </td>
+                                </tr>
+                                <tr style="border-bottom: 1px solid var(--border-color);">
+                                    <td style="padding: 1rem 0;">Profile Updated</td>
+                                    <td style="padding: 1rem 0; color: var(--text-muted);">Yesterday</td>
+                                    <td style="padding: 1rem 0; text-align: right; color: var(--color-accent);">Completed
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td style="padding: 1rem 0;">CPA Message Received</td>
+                                    <td style="padding: 1rem 0; color: var(--text-muted);">Jan 28, 2026</td>
+                                    <td style="padding: 1rem 0; text-align: right; color: #F59E0B;">Pending</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
                 </div>
 
             </div>
@@ -305,6 +312,14 @@
 
         if (sidebarOverlay) {
             sidebarOverlay.addEventListener('click', () => {
+                sidebar.classList.remove('active');
+                sidebarOverlay.classList.remove('active');
+            });
+        }
+
+        const sidebarClose = document.getElementById('sidebar-close');
+        if (sidebarClose) {
+            sidebarClose.addEventListener('click', () => {
                 sidebar.classList.remove('active');
                 sidebarOverlay.classList.remove('active');
             });
