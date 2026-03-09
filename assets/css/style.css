@@ -401,16 +401,22 @@ img {
 
 @media (max-width: 480px) {
     .topbar {
-        padding: 0 0.75rem !important;
+        padding: 0 0.5rem !important;
     }
 
     .topbar .flex {
-        gap: 0.5rem !important;
+        gap: 0.25rem !important;
     }
 
     .page-title {
-        font-size: 1.1rem !important;
-        max-width: 110px;
+        font-size: 1rem !important;
+        max-width: 90px;
+    }
+
+    #sidebar-toggle {
+        width: 35px;
+        height: 35px;
+        font-size: 1rem;
     }
 }
 
@@ -539,7 +545,7 @@ img {
     }
 
     .dashboard-content {
-        padding: 1rem !important;
+        padding: 0.75rem !important;
     }
 
     .settings-grid,
@@ -554,6 +560,37 @@ img {
 
     .auth-content {
         padding: 2rem 1rem !important;
+    }
+
+    /* Robust Table Scroll Fix */
+    .table-responsive {
+        width: 100% !important;
+        max-width: 100% !important;
+        overflow-x: auto !important; /* Enable horizontal scroll */
+        display: block !important;
+        -webkit-overflow-scrolling: touch;
+        margin-top: 1rem;
+        border-radius: var(--radius-md);
+    }
+
+    .table-responsive table {
+        width: 100% !important;
+        min-width: 600px !important; /* Increased for better column spacing */
+        table-layout: auto !important; /* Allow columns to fit content */
+        border-collapse: collapse !important;
+    }
+
+    .table-responsive th,
+    .table-responsive td {
+        white-space: normal !important; /* Allow wrapping if needed */
+        word-wrap: break-word;
+        padding: 1rem 0.75rem !important; /* Generous padding for separation */
+        text-align: left !important;
+    }
+
+    /* Status cards full width */
+    .widget-grid {
+        grid-template-columns: 1fr !important;
     }
 }
 
@@ -600,8 +637,23 @@ img {
     }
 
     .sidebar.active {
+<<<<<<< HEAD
         display: flex !important;
         transform: translateX(0);
+=======
+        display: flex;
+        box-shadow: 0 0 50px rgba(0, 0, 0, 0.3);
+    }
+
+    .sidebar-close {
+        display: block !important;
+        position: absolute;
+        top: 1.5rem;
+        right: 1.5rem;
+        font-size: 1.5rem;
+        cursor: pointer;
+        color: var(--text-muted);
+>>>>>>> 69c750dcfff722b7fcb48eb7831fac2efab3dc96
     }
 }
 
@@ -627,9 +679,10 @@ img {
 }
 
 .nav-item svg {
-    width: 20px;
-    height: 20px;
+    width: 18px;
+    height: 18px;
     stroke-width: 2;
+    flex-shrink: 0;
 }
 
 .nav-item:hover,
@@ -683,6 +736,7 @@ img {
     padding: 0.6rem;
     border-color: var(--border-color) !important;
     color: var(--text-main) !important;
+    white-space: nowrap;
 }
 
 .sidebar .btn-outline:hover {
