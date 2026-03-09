@@ -26,46 +26,6 @@
         }
 
 
-        /* Sidebar */
-        .sidebar {
-            background: var(--bg-surface);
-            border-right: 1px solid var(--border-color);
-            display: flex;
-            flex-direction: column;
-            padding: 1.5rem;
-            transition: transform 0.3s ease;
-        }
-
-        .nav-item {
-            display: flex;
-            align-items: center;
-            gap: 0.75rem;
-            padding: 0.75rem 1rem;
-            color: var(--text-muted);
-            border-radius: var(--radius-md);
-            margin-bottom: 0.5rem;
-            transition: all 0.2s;
-            font-weight: 500;
-        }
-
-        .nav-item:hover,
-        .nav-item.active {
-            background: rgba(255, 255, 255, 0.08);
-            color: white;
-            box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.05);
-        }
-
-        .nav-item svg {
-            width: 20px;
-            height: 20px;
-            stroke-width: 2;
-        }
-
-        [data-theme="dark"] .nav-item:hover,
-        [data-theme="dark"] .nav-item.active {
-            background: rgba(255, 255, 255, 0.1);
-        }
-
         /* Topbar */
         .topbar {
             height: 70px;
@@ -118,88 +78,6 @@
         }
 
 
-        @media (max-width: 1024px) {
-            .dashboard-layout {
-                grid-template-columns: 1fr;
-                padding-top: 80px;
-            }
-
-            .sidebar {
-                display: none;
-            }
-
-            .sidebar.active {
-                display: flex;
-                position: fixed;
-                top: 0;
-                left: 0;
-                bottom: 0;
-                z-index: 2100;
-                width: 260px;
-            }
-
-            .sidebar-overlay {
-                display: none;
-                position: fixed;
-                inset: 0;
-                background: rgba(0, 0, 0, 0.5);
-                backdrop-filter: blur(4px);
-                z-index: 2050;
-            }
-
-            .sidebar-overlay.active {
-                display: block;
-            }
-
-            .topbar {
-                position: fixed !important;
-                top: 0 !important;
-                bottom: auto !important;
-                left: 0 !important;
-                right: 0 !important;
-                height: 80px !important;
-                border-top: none !important;
-                border-bottom: 1px solid var(--border-color) !important;
-                padding: 0 1rem !important;
-                background: var(--bg-surface) !important;
-                box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15) !important;
-                z-index: 3000 !important;
-            }
-
-            .dashboard-content {
-                padding-bottom: 2rem !important;
-                max-height: none !important;
-                overflow-y: visible !important;
-            }
-
-            #sidebar-toggle {
-                display: flex;
-                background: var(--bg-surface) !important;
-                color: var(--heading-color) !important;
-                border: 2px solid var(--border-color) !important;
-                margin-top: 0 !important;
-            }
-
-            .topbar .flex h2 {
-                font-size: 1.5rem !important;
-                font-weight: 700 !important;
-                margin-bottom: 0 !important;
-            }
-
-            .topbar .flex[style*="gap: 1rem"] {
-                gap: 0.5rem !important;
-            }
-
-            .mobile-logo {
-                display: block !important;
-                font-family: var(--font-heading);
-                font-size: 1.25rem;
-                font-weight: 700;
-                color: var(--heading-color);
-                text-decoration: none;
-                margin-right: 0.5rem;
-            }
-        }
 
         .mobile-logo {
             display: none;
@@ -213,17 +91,16 @@
     <div class="dashboard-layout">
 
         <!-- Sidebar -->
-        <aside class="sidebar" id="sidebar" style="background: #0F172A; color: white; border-right: none;">
+        <aside class="sidebar" id="sidebar">
             <div class="logo" style="margin-bottom: 3.5rem;">
-                <a href="index.html"
-                    style="font-family: var(--font-heading); font-size: 1.5rem; font-weight: 700; color: white;">
+                <a href="index.html">
                     Tax<span style="color: var(--color-accent);">Pro</span>
                 </a>
             </div>
 
             <!-- Section 1: Main Nav -->
             <div style="margin-bottom: 2rem;">
-                <nav style="display: flex; flex-direction: column;">
+                <nav>
                     <a href="#" class="nav-item active">
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
                             <rect x="3" y="3" width="7" height="7" rx="1"></rect>
@@ -270,19 +147,15 @@
             </div>
 
             <!-- Section 2: User Account -->
-            <div class="user-profile"
-                style="border-top: 1px solid rgba(255,255,255,0.05); padding-top: 2rem; margin-top: auto;">
-                <div class="flex" style="align-items: center; gap: 0.75rem; margin-bottom: 1.5rem;">
-                    <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?q=80&w=150"
-                        style="border-radius: 50%; width: 45px; height: 45px; object-fit: cover; border: 2px solid rgba(255,255,255,0.1);"
-                        alt="John Doe">
+            <div class="user-profile">
+                <div class="flex">
+                    <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?q=80&w=150" alt="John Doe">
                     <div>
-                        <div style="font-weight: 600; font-size: 0.95rem; color: white;">John Doe</div>
-                        <div style="font-size: 0.8rem; color: rgba(255,255,255,0.5);">Premium Plan</div>
+                        <div class="user-name">John Doe</div>
+                        <div class="user-plan">Premium Plan</div>
                     </div>
                 </div>
-                <a href="index.html" class="btn btn-outline"
-                    style="width: 100%; justify-content: center; font-size: 0.9rem; padding: 0.6rem; border-color: rgba(255,255,255,0.5); color: white;">Log
+                <a href="index.html" class="btn btn-outline">Log
                     Out</a>
             </div>
         </aside>
@@ -304,7 +177,7 @@
                 </div>
 
                 <div class="flex" style="align-items: center; gap: 1rem;">
-                   
+
                     <button id="theme-toggle" class="btn btn-outline"
                         style="padding: 0.4rem; border-radius: 50%;">🌗</button>
                     <button id="rtl-toggle" class="btn btn-outline"
