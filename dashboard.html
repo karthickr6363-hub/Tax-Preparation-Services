@@ -40,11 +40,17 @@
             z-index: 100;
         }
 
-        /* Main Content */
+        /* main content */
         .dashboard-content {
             padding: 2rem;
             overflow-y: auto;
             max-height: 100vh;
+        }
+
+        @media (max-width: 1023px) {
+            #sidebar-toggle {
+                display: flex !important;
+            }
         }
 
         /* Widgets */

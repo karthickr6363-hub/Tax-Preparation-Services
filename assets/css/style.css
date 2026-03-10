@@ -351,7 +351,7 @@ img {
 }
 
 /* Topbar & Dashboard Mobile Layout */
-@media (max-width: 1024px) {
+@media (max-width: 1023px) {
     .dashboard-layout {
         grid-template-columns: 1fr !important;
         padding-top: 80px;
@@ -566,7 +566,8 @@ img {
     .table-responsive {
         width: 100% !important;
         max-width: 100% !important;
-        overflow-x: auto !important; /* Enable horizontal scroll */
+        overflow-x: auto !important;
+        /* Enable horizontal scroll */
         display: block !important;
         -webkit-overflow-scrolling: touch;
         margin-top: 1rem;
@@ -575,16 +576,20 @@ img {
 
     .table-responsive table {
         width: 100% !important;
-        min-width: 600px !important; /* Increased for better column spacing */
-        table-layout: auto !important; /* Allow columns to fit content */
+        min-width: 600px !important;
+        /* Increased for better column spacing */
+        table-layout: auto !important;
+        /* Allow columns to fit content */
         border-collapse: collapse !important;
     }
 
     .table-responsive th,
     .table-responsive td {
-        white-space: normal !important; /* Allow wrapping if needed */
+        white-space: normal !important;
+        /* Allow wrapping if needed */
         word-wrap: break-word;
-        padding: 1rem 0.75rem !important; /* Generous padding for separation */
+        padding: 1rem 0.75rem !important;
+        /* Generous padding for separation */
         text-align: left !important;
     }
 
@@ -623,9 +628,9 @@ img {
     /* Ensure high enough for mobile */
 }
 
-@media (max-width: 1024px) {
+@media (max-width: 1023px) {
     .sidebar {
-        display: none !important;
+        display: none;
         /* Force hide by default on mobile */
         position: fixed;
         top: 0;
@@ -637,11 +642,8 @@ img {
     }
 
     .sidebar.active {
-<<<<<<< HEAD
         display: flex !important;
         transform: translateX(0);
-=======
-        display: flex;
         box-shadow: 0 0 50px rgba(0, 0, 0, 0.3);
     }
 
@@ -653,7 +655,6 @@ img {
         font-size: 1.5rem;
         cursor: pointer;
         color: var(--text-muted);
->>>>>>> 69c750dcfff722b7fcb48eb7831fac2efab3dc96
     }
 }
 
